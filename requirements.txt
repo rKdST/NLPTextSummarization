@@ -1,0 +1,21 @@
+pandas
+transformers
+transformers[sentencepiece]
+datasets
+sacrebleu #this is a evaluation matrix for sentence, since we use rowmatrix this is required
+rouge_score
+py7zr #necessary library for NLP
+nltk
+tqdm
+PyYAML
+matplotlib
+torch #torch GPU version also can be used
+notebook
+boto3
+mypy-boto3-s3
+python-box==6.0.2
+ensure==1.0.2
+fastapi==0.78.0
+uvicorn==0.18.3
+Jinja2==3.1.2
+-e . #this will install the setup.py file where the logic to install the requiremtns will be mentioned
