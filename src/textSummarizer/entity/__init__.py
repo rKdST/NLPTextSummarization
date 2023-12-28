@@ -9,3 +9,11 @@ class DataIngestionConfig: #from config.yaml file the value is the variable whil
     unzip_dir: Path
 
 #from the above code whenever root_dir or any of the mentioned variables will be called it will return the assigned path as per the config.yaml file
+    
+#Below is the entity for validation stage
+@dataclass(frozen=True)
+class DataValidationConfig:
+    root_dir: Path 
+    STATUS_FILE: str
+    ALL_REQUIRED_FILES: list
+   

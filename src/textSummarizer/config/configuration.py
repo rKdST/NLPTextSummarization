@@ -1,6 +1,7 @@
 from textSummarizer.constants import * #since we want to access all the constants
 from textSummarizer.utils.common import read_yaml, create_directories #these files have already created inside common src/utils/common
-from textSummarizer.entity import (DataIngestionConfig)
+from textSummarizer.entity import (DataIngestionConfig,
+                                   DataValidationConfig)
 
 class ConfigurationManager:
     def __init__(
@@ -32,3 +33,18 @@ class ConfigurationManager:
         )
 
         return data_ingestion_config
+    
+    #validation stage config file
+    def get_data_validation_config(self) -> DataValidationConfig: # "DataValidationConfig" is the return type which is created above
+        config = self.config.data_validation
+
+        create_directories([config.root_dir])
+
+        data_validation_config = DataValidationConfig(  #these files will be read from config.yaml file
+            root_dir=config.root_dir,
+            STATUS_FILE=config.STATUS_FILE,
+            ALL_REQUIRED_FILES=config.ALL_REQUIRED_FILES,
+        )
+
+        return data_validation_config
+    
